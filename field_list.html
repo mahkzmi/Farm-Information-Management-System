@@ -1,0 +1,33 @@
+{% extends 'farm/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">لیست زمین‌ها</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">نام زمین</th>
+                <th scope="col">مساحت (هکتار)</th>
+                <th scope="col">نوع خاک</th>
+                <th scope="col">تاریخ کشت</th>
+                <th scope="col">عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for field in fields %}
+            <tr>
+                <td>{{ field.name }}</td>
+                <td>{{ field.area }}</td>
+                <td>{{ field.soil_type }}</td>
+                <td>{{ field.planting_date }}</td>
+                <td>
+                    <a href="{% url 'crop_list' field.id %}" class="btn btn-info btn-sm">محصولات</a>
+                    <a href="{% url 'activity_list' field.id %}" class="btn btn-warning btn-sm">فعالیت‌ها</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_field' %}" class="btn btn-primary">افزودن زمین جدید</a>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'farm/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">محصولات زمین {{ field.name }}</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">نام محصول</th>
+                <th scope="col">تاریخ کشت</th>
+                <th scope="col">تاریخ برداشت</th>
+                <th scope="col">مقدار تولید (تن)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for crop in crops %}
+            <tr>
+                <td>{{ crop.name }}</td>
+                <td>{{ crop.planting_date }}</td>
+                <td>{{ crop.harvest_date }}</td>
+                <td>{{ crop.yield_amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_crop' %}" class="btn btn-success">افزودن محصول جدید</a>
+    <a href="{% url 'field_list' %}" class="btn btn-secondary">بازگشت به لیست زمین‌ها</a>
+</div>
+{% endblock %}

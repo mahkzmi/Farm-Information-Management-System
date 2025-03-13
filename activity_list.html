@@ -1,0 +1,27 @@
+{% extends 'farm/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">فعالیت‌های زمین {{ field.name }}</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">نوع فعالیت</th>
+                <th scope="col">تاریخ</th>
+                <th scope="col">توضیحات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in activities %}
+            <tr>
+                <td>{{ activity.get_activity_type_display }}</td>
+                <td>{{ activity.date }}</td>
+                <td>{{ activity.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_activity' %}" class="btn btn-warning">افزودن فعالیت جدید</a>
+    <a href="{% url 'field_list' %}" class="btn btn-secondary">بازگشت به لیست زمین‌ها</a>
+</div>
+{% endblock %}

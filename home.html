@@ -1,0 +1,39 @@
+{% extends 'farm/base.html' %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="display-4">به سیستم مدیریت مزرعه خوش آمدید</h1>
+    <p class="lead">از طریق دکمه‌های زیر می‌توانید اطلاعات خود را مدیریت کنید.</p>
+
+    <div class="row mt-5">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">زمین‌ها</h5>
+                    <p class="card-text">زمین‌های کشاورزی خود را مدیریت کنید.</p>
+                    <a href="{% url 'add_field' %}" class="btn btn-primary">افزودن زمین جدید</a>
+                    <a href="{% url 'field_list' %}" class="btn btn-secondary">مشاهده لیست</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">محصولات</h5>
+                    <p class="card-text">محصولات کشت شده را مدیریت کنید.</p>
+                    <a href="{% url 'add_crop' %}" class="btn btn-success">افزودن محصول جدید</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">فعالیت‌ها</h5>
+                    <p class="card-text">فعالیت‌های کشاورزی را ثبت کنید.</p>
+                    <a href="{% url 'add_activity' %}" class="btn btn-warning">افزودن فعالیت جدید</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
